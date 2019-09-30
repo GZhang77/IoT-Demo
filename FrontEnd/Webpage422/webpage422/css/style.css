@@ -1,0 +1,32 @@
+@CHARSET "UTF-8";
+html, body { 
+	height:100%; overflow:hidden;
+}
+html, body { 
+	margin:0 auto; 
+	padding:0;
+	list-style:none;
+	overflow-y: auto;
+	overflow-x: hidden;
+	font:normal 15px "Microsoft YaHei";
+}
+#border1{
+		width:400px;
+		height:420px;
+		border:1px solid pink;
+		margin: 10% auto;
+		padding: 35px;
+}
+.check{
+	border-bottom: 1px solid black;
+}
+.in{
+	margin-bottom: 10px;
+}
+.ss,.sss,.aa,.aaa,.bb{
+	margin-top: 20px;
+	
+}
+input{
+		width: 100%;
+}

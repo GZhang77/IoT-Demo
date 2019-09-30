@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iot.sensor.mapper.DriverMapper">
+
+    <resultMap id="BaseResultMap" type="com.iot.sensor.model.Driver">
+
+        <id column="id" jdbcType="BIGINT" property="id"/>
+
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+
+        <result column="age" jdbcType="INTEGER" property="age"/>
+
+    </resultMap>
+
+
+    <select id="findById" resultMap="BaseResultMap">
+        select * from driver
+        where id = #{id};
+    </select>
+
+</mapper>

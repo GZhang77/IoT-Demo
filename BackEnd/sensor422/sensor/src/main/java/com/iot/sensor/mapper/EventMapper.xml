@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iot.sensor.mapper.EventMapper">
+
+    <resultMap id="BaseResultMap" type="com.iot.sensor.model.Event">
+
+        <id column="id" jdbcType="BIGINT" property="id"/>
+
+        <result column="user_id" jdbcType="BIGINT" property="userId"/>
+
+        <result column="user_number" jdbcType="VARCHAR" property="userNumber"/>
+
+        <result column="user_name" jdbcType="VARCHAR" property="userName"/>
+
+        <result column="bus_id" jdbcType="BIGINT" property="busId"/>
+
+        <result column="bus_plate" jdbcType="VARCHAR" property="busPlate"/>
+
+        <result column="time" jdbcType="TIMESTAMP" property="time"/>
+
+        <result column="location_id" jdbcType="BIGINT" property="locationId"/>
+
+        <result column="location_name" jdbcType="VARCHAR" property="locationName"/>
+
+        <result column="driver_id" jdbcType="BIGINT" property="driverId"/>
+
+        <result column="driver_name" jdbcType="VARCHAR" property="driverName"/>
+
+        <result column="event" jdbcType="TINYINT" property="event"/>
+
+    </resultMap>
+
+
+    <insert id="save" keyProperty="id" parameterType="com.iot.sensor.model.Event" useGeneratedKeys="true">
+        insert into event
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">`user_id`,</if>
+
+            <if test="userNumber != null">`user_number`,</if>
+
+            <if test="userName != null">`user_name`,</if>
+
+            <if test="busId != null">`bus_id`,</if>
+
+            <if test="busPlate != null">`bus_plate`,</if>
+
+            <if test="time != null">`time`,</if>
+
+            <if test="locationId != null">`location_id`,</if>
+
+            <if test="locationName != null">`location_name`,</if>
+
+            <if test="driverId != null">`driver_id`,</if>
+
+            <if test="driverName != null">`driver_name`,</if>
+
+            <if test="event != null">`event`,</if>
+
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">#{userId,jdbcType=BIGINT},</if>
+
+            <if test="userNumber != null">#{userNumber,jdbcType=VARCHAR},</if>
+
+            <if test="userName != null">#{userName,jdbcType=VARCHAR},</if>
+
+            <if test="busId != null">#{busId,jdbcType=BIGINT},</if>
+
+            <if test="busPlate != null">#{busPlate,jdbcType=VARCHAR},</if>
+
+            <if test="time != null">#{time,jdbcType=TIMESTAMP},</if>
+
+            <if test="locationId != null">#{locationId,jdbcType=BIGINT},</if>
+
+            <if test="locationName != null">#{locationName,jdbcType=VARCHAR},</if>
+
+            <if test="driverId != null">#{driverId,jdbcType=BIGINT},</if>
+
+            <if test="driverName != null">#{driverName,jdbcType=VARCHAR},</if>
+
+            <if test="event != null">#{event,jdbcType=TINYINT},</if>
+
+        </trim>
+    </insert>
+
+
+    <select id="getByUserId" resultMap="BaseResultMap">
+        select * from event
+        where user_id = #{userId};
+    </select>
+
+</mapper>

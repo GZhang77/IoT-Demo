@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iot.sensor.mapper.LocationMapper">
+
+    <resultMap id="BaseResultMap" type="com.iot.sensor.model.Location">
+
+        <id column="id" jdbcType="BIGINT" property="id"/>
+
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+
+    </resultMap>
+
+
+    <select id="findById" resultMap="BaseResultMap">
+        select * from location
+        where id = #{id};
+    </select>
+
+    <select id="findAll" resultMap="BaseResultMap">
+        select * from location
+    </select>
+
+
+</mapper>
